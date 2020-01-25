@@ -1,0 +1,54 @@
+// Variabele
+$dark: #123;
+$light: purple;
+$size: 500px;
+
+//Mixin
+@mixin center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+
+body {
+    background-color: $dark;
+}
+
+.preloder {
+    width: $size;
+    height: $size;
+    background-color: lighten($dark, 5%);
+    @include center;
+    border-radius: $size;
+
+
+    @for $n from 1 through 28 {
+
+        div:nth-child(#{$n}) {
+            width: (1.02 - 0.04 * $n) * $size;
+            height: (1.02 - 0.04 * $n) * $size;
+            border-radius: $size;
+            @include center;
+            // border: 0.01 * $size solid lighten($light, 7% / $n);
+            border: 0.01 * $size solid rgb(random(225), random(225), random(225));
+            border-top-color: transparent;
+            animation: rot-1 1s + 0.1s * $n infinite linear;
+            animation-delay: -5s + 0.5 * $n;
+        }
+    }
+}
+
+
+@keyframes rot-1 {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
