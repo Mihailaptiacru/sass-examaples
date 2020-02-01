@@ -1,0 +1,47 @@
+@import "_reset.scss";
+
+$color : rgb(64, 69, 82);
+$white : #fff;
+//$contanier-size : 800px;
+$contanier-size : 900px;
+$min-width: 920px;
+
+
+
+body {
+    background-color: $color;
+}
+
+.nav__tabs {
+
+    // min-width: $min-width;
+    width: $contanier-size;
+
+    @media (max-width: $min-width +40px) {
+        $contanier-size: 80vw;
+        width: $contanier-size;
+    }
+
+    margin: 0 auto;
+    text-align: center;
+
+    li {
+        // table ,flex, float
+        display: inline-block;
+        //padding: 5px 15px;
+        width: $contanier-size / 5;
+
+        @media (max-width: $min-width + 40px) {
+            $contanier-size: 80vw;
+            width: $contanier-size / 3;
+        }
+
+        margin-left: -4px;
+
+        small {
+            display: block;
+
+
+        }
+    }
+}
